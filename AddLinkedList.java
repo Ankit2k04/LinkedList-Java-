@@ -34,6 +34,17 @@ public class AddLinkedList {
         tail = newNode;
     }
 
+    //print a linked list
+    public void printLL(){
+        Node temp = head;
+        System.out.print("head->");
+        while(temp != null){
+            System.out.print(temp.data + "->");
+            temp = temp.next;
+        }
+        System.out.print("null");
+    }
+
     public static void main(String[] args) {
         AddLinkedList ll = new AddLinkedList();
         ll.addFirst(0);
@@ -41,6 +52,7 @@ public class AddLinkedList {
         ll.addFirst(2);
         ll.addLast(3);
         ll.addLast(4);
+        ll.printLL();
         //output : 2->1->0->3->4
     }
 }
