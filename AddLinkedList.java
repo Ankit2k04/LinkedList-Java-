@@ -52,6 +52,35 @@ public class AddLinkedList {
         
     }
 
+    //remove first
+    public int removeFirst(){
+        if(sizeLL()==0){
+            System.out.println("LL is empty");
+            return -1;
+        }
+        Node temp = head;
+        int data = temp.data;
+
+        head = temp.next;
+        return data;
+    }
+
+    //remove last
+    public int removeLast(){
+        if(sizeLL()==0){
+            System.out.println("LL is empty");
+            return -1;
+        }
+        Node temp = head;
+        int data = temp.data;
+
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+        return data;
+    }
+
     public int sizeLL(){
         int size = 0;
         Node temp = head;
@@ -60,6 +89,16 @@ public class AddLinkedList {
             temp = temp.next;
         }
         return size;
+    }
+    public boolean isFound(int key){
+        Node temp = head;
+        while(temp!=null){
+            if(temp.data==key){
+                return true;
+            }
+            temp=temp.next;
+        }
+        return false;
     }
 
     //print a linked list
@@ -70,7 +109,7 @@ public class AddLinkedList {
             System.out.print(temp.data + "->");
             temp = temp.next;
         }
-        System.out.print("null");
+        System.out.println("null");
     }
 
     public static void main(String[] args) {
@@ -80,9 +119,12 @@ public class AddLinkedList {
         ll.addFirst(2);
         ll.addLast(3);
         ll.addLast(4);
-        ll.add(7, 0);
         ll.printLL();
+        ll.removeFirst();
+        ll.printLL();
+        ll.removeLast();
+        ll.printLL();
+        System.out.println(ll.isFound(10));
         System.out.println();
-        System.out.println(ll.sizeLL());
     }
 }
