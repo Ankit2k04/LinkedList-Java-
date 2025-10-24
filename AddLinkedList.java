@@ -52,6 +52,16 @@ public class AddLinkedList {
         
     }
 
+    public int sizeLL(){
+        int size = 0;
+        Node temp = head;
+        while(temp!=null){
+            size++;
+            temp = temp.next;
+        }
+        return size;
+    }
+
     //print a linked list
     public void printLL(){
         Node temp = head;
@@ -72,6 +82,7 @@ public class AddLinkedList {
         ll.addLast(4);
         ll.add(7, 0);
         ll.printLL();
-        //output : 2->1->0->3->4
+        System.out.println();
+        System.out.println(ll.sizeLL());
     }
 }
